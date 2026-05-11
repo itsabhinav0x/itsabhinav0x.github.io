@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhinav Kumar | Cybersecurity Student & Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --accent: #ec4899;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #fafafa;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, .display-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        /* Animated Background */
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+            animation: gradientShift 20s ease-in-out infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+        
+        /* Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Text Scramble Effect */
+        .scramble-text {
+            display: inline-block;
+        }
+        
+        /* Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Skill Bars */
+        .skill-bar {
+            width: 0;
+            transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        
+        .skill-bar.animate {
+            width: var(--width);
+        }
+        
+        /* Floating Animation */
+        .float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        /* Typing Cursor */
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.2em;
+            background: var(--primary);
+            margin-left: 5px;
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        /* Card Hover Effects */
+        .project-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+            border-radius: 5px;
+        }
+        
+        /* Navigation */
+        .nav-link {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: translateX(-100%);
+            transition: transform 0.3s;
+        }
+        
+        .nav-link:hover::after {
+            transform: translateX(0);
+        }
+        
+        /* Grid Pattern */
+        .grid-pattern {
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+    </style>
+</head>
+<body class="grid-pattern">
+
+    <!-- Animated Background -->
+    <div class="gradient-bg"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass px-6 py-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold display-font bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+                &lt;Abhinav /&gt;
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-sm uppercase tracking-widest hover:text-indigo-400 transition-colors">Home</a>
+                <a href="#about" class="nav-link text-sm uppercase tracking-widest hover:text-indigo-400 transition-colors">About</a>
+                <a href="#skills" class="nav-link text-sm uppercase tracking-widest hover:text-indigo-400 transition-colors">Skills</a>
+                <a href="#learning" class="nav-link text-sm uppercase tracking-widest hover:text-indigo-400 transition-colors">Learning</a>
+                <a href="#projects" class="nav-link text-sm uppercase tracking-widest hover:text-indigo-400 transition-colors">Projects</a>
+            </div>
+            <button onclick="toggleMobileMenu()" class="md:hidden text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-black/95 transform translate-x-full transition-transform duration-300 md:hidden flex items-center justify-center">
+        <div class="flex flex-col space-y-8 text-center">
+            <a href="#home" onclick="toggleMobileMenu()" class="text-2xl hover:text-indigo-400">Home</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="text-2xl hover:text-indigo-400">About</a>
+            <a href="#skills" onclick="toggleMobileMenu()" class="text-2xl hover:text-indigo-400">Skills</a>
+            <a href="#learning" onclick="toggleMobileMenu()" class="text-2xl hover:text-indigo-400">Learning</a>
+            <a href="#projects" onclick="toggleMobileMenu()" class="text-2xl hover:text-indigo-400">Projects</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative px-6 pt-32 pb-24">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <div class="inline-block px-4 py-2 rounded-full glass text-indigo-400 text-sm font-medium mb-4">
+                    👋 First-Year Cybersecurity Student
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold leading-tight">
+                    Securing the <br>
+                    <span class="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                        Future
+                    </span>
+                    <br>with Cybersecurity
+                </h1>
+                <p class="text-xl text-gray-400 max-w-lg">
+                    I'm a passionate CS student learning <span id="typing-text" class="text-indigo-400"></span><span class="cursor"></span>
+                </p>
+                <div class="flex gap-4 pt-4">
+                    <a href="#projects" class="px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full font-semibold hover:shadow-lg hover:shadow-indigo-500/30 transition-all transform hover:scale-105">
+                        View My Work
+                    </a>
+                    <a href="#contact" class="px-8 py-4 glass rounded-full font-semibold hover:bg-white/10 transition-all">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+            <div class="relative float flex justify-center">
+                <div class="w-80 h-80 mx-auto relative">
+                    <div class="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full blur-3xl opacity-30 animate-pulse"></div>
+                    <div class="relative w-full h-full rounded-full overflow-hidden border-2 border-white/10 glass">
+                        <!-- Replace with your image -->
+                        <img src="https://i.postimg.cc/FFYgQDJG/IMG-20260511-144000.jpg" alt="Profile" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity">
+                    </div>
+                    <!-- Floating Elements -->
+                    <div class="absolute -top-4 -right-4 w-20 h-20 bg-indigo-500/20 rounded-full blur-xl"></div>
+                    <div class="absolute -bottom-4 -left-4 w-32 h-32 bg-purple-500/20 rounded-full blur-xl"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="reveal">
+                <h2 class="text-4xl md:text-5xl font-bold mb-8 display-font">About Me</h2>
+                <div class="glass rounded-2xl p-8 md:p-12 space-y-6">
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                        I'm a first-year computer science student specializing in 
+                        <span class="text-indigo-400">"cybersecurity"</span> My journey started with curiosity about how systems work—and how they can be protected.
+                        I'm currently building my foundation in networking, operating systems, and ethical hacking. In my free time, I solve CTF challenges, read about recent breaches, and tinker with virtual labs. I believe security starts with understanding—and I'm here to learn deeply.
+
+ 
+                    
+                    </p>
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                        When I'm not debugging code, you'll find me exploring new frameworks, contributing to open-source, 
+                        or sketching UI designs. I believe in the power of clean code, continuous learning, and the 
+                        magic that happens when creativity meets logic.
+                    </p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-6">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-indigo-400">0.6+</div>
+                            <div class="text-sm text-gray-500">Years Coding</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-purple-400">4+</div>
+                            <div class="text-sm text-gray-500">Projects</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-pink-400">3+</div>
+                            <div class="text-sm text-gray-500">Hackathons</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-blue-400">∞</div>
+                            <div class="text-sm text-gray-500">Coffee Cups</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="reveal mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 display-font">Technical Arsenal</h2>
+                <p class="text-gray-400">Technologies currently learning and use daily</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Programming Languages -->
+                <div class="glass rounded-2xl p-8 reveal">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                        <span class="w-8 h-8 bg-indigo-500/20 rounded-lg flex items-center justify-center">💻</span>
+                        Languages
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span>c programming</span>
+                                <span class="text-indigo-400">65%</span>
+                            </div>
+                            
+                            <div class="h-2 bg-white/10 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full" style="--width: 65%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span>Bash (Basics)</span>
+                                <span class="text-indigo-400">17%</span>
+                            </div>
+                            <div class="h-2 bg-white/10 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full" style="--width: 17%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span>Python</span>
+                                <span class="text-indigo-400">22%</span>
+                            </div>
+                            <div class="h-2 bg-white/10 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full" style="--width: 22%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span>C++</span>
+                                <span class="text-indigo-400">27%</span>
+                            </div>
+                            <div class="h-2 bg-white/10 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full" style="--width: 27%"></div>
+                            </div>
+                            
+                            <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span>DBMS using SQL</span>
+                                <span class="text-indigo-400">38%</span>
+                            </div>
+                            <div class="h-2 bg-white/10 rounded-full overflow-hidden">
+                                <div class="skill-bar h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full" style="--width: 38%"></div>
+                            </div>
+                                </div>     
+                        </div>
+                    </div>
+                </div>
+                    
+
+                <!-- Frameworks & Tools -->
+                <div class="glass rounded-2xl p-8 reveal">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                        <span class="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center">🛠️</span>
+                        Frameworks & Tools
+                    </h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                            <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                            <span>Wireshark, Nmap</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                            <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
+                            <span>Bash, Powershell</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                            <div class="w-2 h-2 bg-orange-400 rounded-full"></div>
+                            <span>Git & GitHub</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                            <div class="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                            <span>Docker</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                            <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                            <span>Linux and Networking basic</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                            <div class="w-2 h-2 bg-pink-400 rounded-full"></div>
+                            <span>Figma</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                            <div class="w-2 h-2 bg-indigo-400 rounded-full"></div>
+                            <span>AWS</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                            <div class="w-2 h-2 bg-red-400 rounded-full"></div>
+                            <span>SQL & DBMS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Currently Learning Section -->
+    <section id="learning" class="py-20 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-indigo-900/20 to-purple-900/20"></div>
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="reveal mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 display-font">Currently Learning</h2>
+                <p class="text-gray-400">Building my cybersecurity foundation</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="glass rounded-2xl p-6 reveal hover:border-indigo-500/50 transition-colors border border-transparent">
+                    <div class="w-12 h-12 bg-gradient-to-br from-orange-400 to-red-500 rounded-xl mb-4 flex items-center justify-center text-2xl">🦀</div>
+                    <h3 class="text-xl font-bold mb-2">C++ Programming</h3>
+                    <p class="text-gray-400 text-sm mb-4">object oriented programming, STL, pointers, memory management</p>
+                    <div class="flex gap-2">
+                        <span class="px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-xs">Beginner</span>
+                        <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Programming</span>
+                    </div>
+                </div>
+
+                <div class="glass rounded-2xl p-6 reveal hover:border-purple-500/50 transition-colors border border-transparent">
+                    <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-500 rounded-xl mb-4 flex items-center justify-center text-2xl">🤖</div>
+                    <h3 class="text-xl font-bold mb-2">Linux Fundamentals</h3>
+                    <p class="text-gray-400 text-sm mb-4">Navigating the terminal, file systems, permissions, and basic scripting..</p>
+                    <div class="flex gap-2">
+                        <span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs">Beginner</span>
+                        <span class="px-3 py-1 bg-white/10 rounded-full text-xs">OS</span>
+                    </div>
+                </div>
+
+                <div class="glass rounded-2xl p-6 reveal hover:border-blue-500/50 transition-colors border border-transparent">
+                    <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-xl mb-4 flex items-center justify-center text-2xl">☸️</div>
+                    <h3 class="text-xl font-bold mb-2">Python for Security</h3>
+                    <p class="text-gray-400 text-sm mb-4">Writing scripts for automation, log parsing, and simple scanners.</p>
+                    <div class="flex gap-2">
+                        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs">Beginner</span>
+                        <span class="px-3 py-1 bg-white/10 rounded-full text-xs">Scripting</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="reveal mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 display-font">Featured Projects</h2>
+                <p class="text-gray-400">Things I've built along the way</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                
+                
+                <div class="project-card glass rounded-2xl overflow-hidden reveal group">
+                    <div class="h-48 bg-gradient-to-br from-indigo-600 to-purple-600 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
+                        <div class="absolute inset-0 flex items-center justify-center text-6xl opacity-50">📝</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Student Management System</h3>
+                        <p class="text-gray-400 text-sm mb-4">A console-based Student Management System written in C that manages student records using structures and file handling. It supports adding, viewing, searching, updating, and deleting student information through a user-friendly menu-driven interface.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-indigo-500/20 text-indigo-300 rounded text-xs">C++</span>
+                            <!-- <span class="px-2 py-1 bg-blue-500/20 text-blue-300 rounded text-xs">React</span>
+                            <span class="px-2 py-1 bg-green-500/20 text-green-300 rounded text-xs">OpenAI</span> -->
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="#" class="text-sm text-indigo-400 hover:text-indigo-300 flex items-center gap-1">
+                                View Code →
+                            </a>
+                            <a href="#" class="text-sm text-gray-400 hover:text-white flex items-center gap-1">
+                                Live Demo →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <!-- <div class="project-card glass rounded-2xl overflow-hidden reveal group">
+                    <div class="h-48 bg-gradient-to-br from-pink-600 to-orange-600 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
+                        <div class="absolute inset-0 flex items-center justify-center text-6xl opacity-50">🎮</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Retro Game Engine</h3>
+                        <p class="text-gray-400 text-sm mb-4">2D game engine built from scratch with SDL2, featuring physics and particle systems.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-blue-500/20 text-blue-300 rounded text-xs">C++</span>
+                            <span class="px-2 py-1 bg-purple-500/20 text-purple-300 rounded text-xs">OpenGL</span>
+                            <span class="px-2 py-1 bg-yellow-500/20 text-yellow-300 rounded text-xs">SDL2</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="#" class="text-sm text-indigo-400 hover:text-indigo-300 flex items-center gap-1">
+                                View Code →
+                            </a>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- Project 3
+                <div class="project-card glass rounded-2xl overflow-hidden reveal group">
+                    <div class="h-48 bg-gradient-to-br from-green-600 to-teal-600 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
+                        <div class="absolute inset-0 flex items-center justify-center text-6xl opacity-50">🌐</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">CryptoTracker</h3>
+                        <p class="text-gray-400 text-sm mb-4">Real-time cryptocurrency dashboard with WebSocket updates and portfolio analytics.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-yellow-500/20 text-yellow-300 rounded text-xs">JavaScript</span>
+                            <span class="px-2 py-1 bg-cyan-500/20 text-cyan-300 rounded text-xs">Node.js</span>
+                            <span class="px-2 py-1 bg-orange-500/20 text-orange-300 rounded text-xs">WebSocket</span>
+                        </div> -->
+                        
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="reveal">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 display-font">Let's Build Something Together</h2>
+                <p class="text-gray-400 mb-12 text-lg">Open for internships, collaborations, and interesting conversations</p>
+                
+                <div class="flex flex-col md:flex-row gap-6 justify-center items-center mb-12">
+                    <a href="mailto:realabhinavkumar@gmail.com" class="px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full font-semibold hover:shadow-lg hover:shadow-indigo-500/30 transition-all transform hover:scale-105 flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        Email Me
+                    </a>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-12 h-12 glass rounded-full flex items-center justify-center hover:bg-white/10 transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/abhinav-kumar-55b125382?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="w-12 h-12 glass rounded-full flex items-center justify-center hover:bg-white/10 transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="#" class="w-12 h-12 glass rounded-full flex items-center justify-center hover:bg-white/10 transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-white/10">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-gray-500 text-sm">
+                Built with passion and curiosity
+                <br>
+                © 2026 All rights reserved
+            </div>
+            <div class="text-gray-600 text-sm">
+                
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Typing Effect
+        const words = ['Linux', 'Bash scripting', 'System Design', 'Programming', 'Git-Github', 'Networking'];
+        let i = 0;
+        let timer;
+
+        function typeWriter() {
+            const element = document.getElementById('typing-text');
+            const word = words[i];
+            let charIndex = 0;
+            
+            function type() {
+                if (charIndex < word.length) {
+                    element.textContent += word.charAt(charIndex);
+                    charIndex++;
+                    setTimeout(type, 100);
+                } else {
+                    setTimeout(erase, 2000);
+                }
+            }
+            
+            function erase() {
+                if (charIndex > 0) {
+                    element.textContent = word.substring(0, charIndex - 1);
+                    charIndex--;
+                    setTimeout(erase, 50);
+                } else {
+                    i = (i + 1) % words.length;
+                    setTimeout(typeWriter, 500);
+                }
+            }
+            
+            type();
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('translate-x-full');
+        }
+
+        // Scroll Reveal Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    
+                    // Animate skill bars when skills section is visible
+                    if (entry.target.querySelector('.skill-bar')) {
+                        entry.target.querySelectorAll('.skill-bar').forEach(bar => {
+                            setTimeout(() => bar.classList.add('animate'), 200);
+                        });
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Parallax Effect for Hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.gradient-bg');
+            parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
+        });
+
+        // Initialize
+        window.addEventListener('load', () => {
+            typeWriter();
+        });
+
+        // Mouse Trail Effect (Subtle)
+        let mouseX = 0, mouseY = 0;
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX / window.innerWidth;
+            mouseY = e.clientY / window.innerHeight;
+            
+            const gradient = document.querySelector('.gradient-bg');
+            gradient.style.backgroundPosition = `${mouseX * 50}px ${mouseY * 50}px`;
+        });
+    </script>
+</body>
+</html>
